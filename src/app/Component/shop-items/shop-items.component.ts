@@ -17,9 +17,27 @@ export class ShopItemsComponent implements OnInit {
     this.item.description = 'Test Desc';
 
     this.items = [
-      { title: 'Shoes', price: 20, description: 'xyz', isDiscount: false },
-      { title: 'Shirts', price: 20, description: 'xyz', isDiscount: true },
-      { title: 'Shorts', price: 20, description: 'xyz', isDiscount: true },
+      {
+        title: 'Shoes',
+        price: 20,
+        description: 'xyz',
+        isDiscount: false,
+        discount: 10,
+      },
+      {
+        title: 'Shirts',
+        price: 20,
+        description: 'xyz',
+        isDiscount: true,
+        discount: 5,
+      },
+      {
+        title: 'Shorts',
+        price: 20,
+        description: 'xyz',
+        isDiscount: true,
+        discount: 10,
+      },
     ];
   }
 }

@@ -1,6 +1,6 @@
 <div class="col-lg-12">
   <div class="row">
-    <div class="col-lg-4 col-md-6 mb-4">
+    <!-- <div class="col-lg-4 col-md-6 mb-4">
       <div class="card h-100">
         <a href="#"
           ><img class="card-img-top" src="http://placehold.it/700x400" alt=""
@@ -10,7 +10,29 @@
             <a href="#">{{ item.title }}</a>
           </h4>
           <h5>$ {{ item.price }}</h5>
-          <p class="card-text">{{ item.description }}</p>
+          <p class="card-text">{{ item.description | uppercase }}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted"
+            >&#9733; &#9733; &#9733; &#9733; &#9734;</small
+          >
+        </div>
+      </div>
+    </div> -->
+
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let i of items; let ind = index">
+      <div class="card h-100">
+        <a href="#"
+          ><img class="card-img-top" src="http://placehold.it/700x400" alt=""
+        /></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">{{ i.title | uppercase }}</a>
+          </h4>
+          <h5>$ {{ i.price }} Discounted amount.{{ i.price | calDiscount: i.discount }}</h5>
+          <p appHiglight highlightColor="red" class="card-text">{{ i.description }}</p>
+          <p *ngIf="i.isDiscount"> This product has discount</p>
+
         </div>
         <div class="card-footer">
           <small class="text-muted"
@@ -19,26 +41,6 @@
         </div>
       </div>
     </div>
-
-    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let i of items">
-        <div class="card h-100">
-          <a href="#"
-            ><img class="card-img-top" src="http://placehold.it/700x400" alt=""
-          /></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">{{ i.title }}</a>
-            </h4>
-            <h5>$ {{ i.price }}</h5>
-            <p class="card-text">{{ i.description }}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted"
-              >&#9733; &#9733; &#9733; &#9733; &#9734;</small
-            >
-          </div>
-        </div>
-      </div>
   </div>
   <!-- /.row -->
 </div>
