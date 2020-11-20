@@ -11,6 +11,8 @@ import { CalDiscountPipe } from './pipes/cal-discount.pipe';
 import { HiglightDirective } from './directives/higlight.directive';
 import { SampleDirective } from './directives/sample.directive';
 import { SamplePipe } from './pipes/sample.pipe';
+import { ItemDetailsComponent } from './Component/item-details/item-details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,21 @@ import { SamplePipe } from './pipes/sample.pipe';
     CalDiscountPipe,
     HiglightDirective,
     SampleDirective,
-    SamplePipe
+    SamplePipe,
+    ItemDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'items', component: ShopItemsComponent },
+      { path: 'item-details', component: ItemDetailsComponent },
+      { path: 'item-details/:id', component: ItemDetailsComponent },
+      { path: '', redirectTo: 'items', pathMatch: 'full' }
+
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

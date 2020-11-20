@@ -27,12 +27,12 @@
         /></a>
         <div class="card-body">
           <h4 class="card-title">
-            <a href="#">{{ i.title | uppercase }}</a>
+            <a routerLink="/item-details/{{ind}}">{{ i.title | uppercase }}</a>
           </h4>
           <h5>$ {{ i.price }} Discounted amount.{{ i.price | calDiscount: i.discount }}</h5>
           <p appHiglight highlightColor="red" class="card-text">{{ i.description }}</p>
-          <p *ngIf="i.isDiscount"> This product has discount</p>
-
+       
+          <span class="badge badge-primary">This product has discount</span>
         </div>
         <div class="card-footer">
           <small class="text-muted"
