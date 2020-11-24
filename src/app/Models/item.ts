@@ -5,3 +5,10 @@ export interface Item {
   isDiscount?: boolean;
   discount?: number;
 }
+
+export interface ItemPosts {
+  body?: string;
+  id?: number;
+  title?: string;
+  userId?: number;
+}
