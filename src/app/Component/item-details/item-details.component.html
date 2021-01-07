@@ -28,9 +28,64 @@
         <small class="text-muted">{{ data.title }}</small>
         <hr />
       </div>
+      {{commentForm.controls.email.value}}
+      <form [formGroup]="commentForm" (ngSubmit)="postData($event)">
 
-      <a href="#" class="btn btn-success">Leave a Review</a>
+        
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <span *ngIf="form?.email.errors?.required && form?.email.dirty"
+          >Required</span
+        >
+        <span *ngIf="form?.email.errors?.email && form?.email.dirty"
+          >Invalid email</span
+        >
+        <input
+          class="form-control"
+          type="comment"
+          name="comment"
+          formControlName="comment"
+          placeholder="Comment"
+        />
+
+        Material Form Field
+        <div class="example-container">
+          <mat-form-field appearance="legacy" >
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Placeholder " formControlName="email">
+            
+            <mat-hint>Hint</mat-hint>
+            <mat-error *ngIf="commentForm.invalid">Required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="commentForm.invalid"
+        >
+          Leave a Review
+        </button>
+      </form>
+
+
     </div>
   </div>
   <!-- /.card -->
 </div>
+<!-- <section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section> -->

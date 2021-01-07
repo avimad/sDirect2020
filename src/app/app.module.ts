@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TestCompComponent } from './test-comp/test-comp.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideBarComponent } from './Component/side-bar/side-bar.component';
 import { ToolBarComponent } from './Component/tool-bar/tool-bar.component';
 import { ShopItemsComponent } from './Component/shop-items/shop-items.component';
@@ -14,6 +14,12 @@ import { SamplePipe } from './pipes/sample.pipe';
 import { ItemDetailsComponent } from './Component/item-details/item-details.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forRoot([
       { path: 'items', component: ShopItemsComponent },
       { path: 'item-details', component: ItemDetailsComponent },
@@ -39,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
       { path: '', redirectTo: 'items', pathMatch: 'full' }
 
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
