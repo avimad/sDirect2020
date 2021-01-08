@@ -46,6 +46,7 @@ export class ItemDetailsComponent implements OnInit {
   postData(event){
     console.log(event);
     this.commentForm.reset();
+    window.navigator.geolocation.getCurrentPosition(console.log);
   }
 
 

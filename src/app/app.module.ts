@@ -16,10 +16,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -46,8 +45,17 @@ import {MatInputModule} from '@angular/material/input';
       { path: 'items', component: ShopItemsComponent },
       { path: 'item-details', component: ItemDetailsComponent },
       { path: 'item-details/:id', component: ItemDetailsComponent },
-      { path: '', redirectTo: 'items', pathMatch: 'full' }
-
+      { path: '', redirectTo: 'items', pathMatch: 'full' },
+      {
+        path: 'admin',
+        loadChildren: () =>
+          import('./admin/admin.module').then((m) => m.AdminModule),
+      },
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('./user/user.module').then((m) => m.UserModule),
+      },
     ]),
     BrowserAnimationsModule,
   ],
